@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("/assets/fonts/SpaceGrotesk.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("/assets/fonts/DMSans.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/assets/fonts/GeistMono.woff2") format("woff2");
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --font-display: "Space Grotesk";
+    --font-body: "DM Sans";
+    --font-mono: "Geist Mono";
+    --radius: 0.5rem;
+
+    --background: 0.16 0.012 60;
+    --foreground: 0.94 0.008 80;
+    --card: 0.205 0.014 60;
+    --card-foreground: 0.94 0.008 80;
+    --popover: 0.22 0.014 60;
+    --popover-foreground: 0.94 0.008 80;
+
+    --primary: 0.82 0.19 128;
+    --primary-foreground: 0.18 0.03 128;
+
+    --secondary: 0.26 0.014 60;
+    --secondary-foreground: 0.86 0.008 80;
+    --muted: 0.24 0.012 60;
+    --muted-foreground: 0.62 0.012 70;
+
+    --accent: 0.68 0.2 42;
+    --accent-foreground: 0.17 0.03 42;
+
+    --destructive: 0.6 0.21 25;
+    --destructive-foreground: 0.96 0.006 25;
+    --success: 0.72 0.17 148;
+    --warning: 0.78 0.16 85;
+
+    --border: 0.29 0.014 60;
+    --input: 0.29 0.014 60;
+    --ring: 0.82 0.19 128;
+
+    --chart-1: 0.82 0.19 128;
+    --chart-2: 0.68 0.2 42;
+    --chart-3: 0.72 0.15 200;
+    --chart-4: 0.7 0.17 320;
+    --chart-5: 0.8 0.14 85;
+
+    --sidebar: 0.185 0.012 60;
+    --sidebar-foreground: 0.9 0.008 80;
+    --sidebar-primary: 0.82 0.19 128;
+    --sidebar-primary-foreground: 0.18 0.03 128;
+    --sidebar-accent: 0.26 0.014 60;
+    --sidebar-accent-foreground: 0.86 0.008 80;
+    --sidebar-border: 0.29 0.014 60;
+    --sidebar-ring: 0.82 0.19 128;
+
+    --gradient-primary: linear-gradient(
+      135deg,
+      oklch(0.86 0.19 128),
+      oklch(0.76 0.2 118)
+    );
+    --gradient-subtle: linear-gradient(
+      180deg,
+      oklch(0.22 0.014 60),
+      oklch(0.185 0.012 60)
+    );
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --background: 0.16 0.012 60;
+    --foreground: 0.94 0.008 80;
+    --card: 0.205 0.014 60;
+    --card-foreground: 0.94 0.008 80;
+    --popover: 0.22 0.014 60;
+    --popover-foreground: 0.94 0.008 80;
+
+    --primary: 0.82 0.19 128;
+    --primary-foreground: 0.18 0.03 128;
+
+    --secondary: 0.26 0.014 60;
+    --secondary-foreground: 0.86 0.008 80;
+    --muted: 0.24 0.012 60;
+    --muted-foreground: 0.62 0.012 70;
+
+    --accent: 0.68 0.2 42;
+    --accent-foreground: 0.17 0.03 42;
+
+    --destructive: 0.6 0.21 25;
+    --destructive-foreground: 0.96 0.006 25;
+
+    --border: 0.29 0.014 60;
+    --input: 0.29 0.014 60;
+    --ring: 0.82 0.19 128;
+
+    --chart-1: 0.82 0.19 128;
+    --chart-2: 0.68 0.2 42;
+    --chart-3: 0.72 0.15 200;
+    --chart-4: 0.7 0.17 320;
+    --chart-5: 0.8 0.14 85;
+
+    --sidebar: 0.185 0.012 60;
+    --sidebar-foreground: 0.9 0.008 80;
+    --sidebar-primary: 0.82 0.19 128;
+    --sidebar-primary-foreground: 0.18 0.03 128;
+    --sidebar-accent: 0.26 0.014 60;
+    --sidebar-accent-foreground: 0.86 0.008 80;
+    --sidebar-border: 0.29 0.014 60;
+    --sidebar-ring: 0.82 0.19 128;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  .bg-gradient-primary {
+    background-image: var(--gradient-primary);
+  }
+  .bg-gradient-subtle {
+    background-image: var(--gradient-subtle);
+  }
+  .label-caps {
+    @apply text-xs font-semibold uppercase tracking-widest text-muted-foreground;
+  }
+  .panel-well {
+    box-shadow: inset 0 1px 2px 0 oklch(0 0 0 / 0.5), inset 0 0 0 1px
+      oklch(0 0 0 / 0.25);
+  }
+  .step-active {
+    box-shadow: 0 0 0 1px oklch(0.82 0.19 128 / 0.5), 0 0 12px -2px
+      oklch(0.82 0.19 128 / 0.45);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-playhead-pulse,
+  .animate-fade-in,
+  .animate-step-flash {
+    animation: none !important;
+  }
+  .transition-smooth {
+    transition: none !important;
+  }
+}

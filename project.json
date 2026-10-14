@@ -1,0 +1,19 @@
+{
+  "overview": "An offline music generator that creates playable multi-track compositions in the browser from genre, mood, tempo and key settings.",
+  "features": [
+    "Generate multi-track compositions from genre, mood, tempo and key settings",
+    "Step-sequencer grid with editable steps and per-track regenerate",
+    "Playback transport with loop, volume, mute and solo",
+    "Export the current composition as a WAV file",
+    "Save and reload named compositions in the browser"
+  ],
+  "category": "music",
+  "tags": [
+    "music",
+    "audio",
+    "generator",
+    "offline",
+    "creative-tool"
+  ],
+  "last_updated": "2026-10-14T13:19:14.690Z"
+}

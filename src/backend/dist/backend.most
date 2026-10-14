@@ -1,0 +1,61 @@
+// Version: 4.0.0
+type AccessControlState__201339279 =
+  {
+    var adminAssigned : Bool;
+    userRoles : Map__230067015<Principal, UserRole__91647283>
+  };
+type Composition__164365185 =
+  {
+    createdAt : Timestamp__301639476;
+    id : Nat;
+    name : Text;
+    owner : Principal;
+    payload : Text;
+    updatedAt : Timestamp__301639476
+  };
+type Composition__412328051 =
+  {
+    createdAt : Nat;
+    id : Nat;
+    name : Text;
+    owner : Principal;
+    payload : Text;
+    updatedAt : Nat
+  };
+type Data__44217153<K, V> = {var count : Nat__227979830; kvs : [var ?(K, V)]};
+type Internal__283199666<K, V> =
+  {children : [var ?Node__204828119<K, V>]; data : Data__44217153<K, V>};
+type Leaf__598469445<K, V> = {data : Data__44217153<K, V>};
+type Map__230067015<K, V> = Map__405889023<K, V>;
+type Map__405889023<K, V> = Map__603270868<K, V>;
+type Map__603270868<K, V> =
+  {var root : Node__204828119<K, V>; var size : Nat__227979830};
+type Nat__227979830 = Nat__920180692;
+type Nat__920180692 = Nat;
+type NewActor__769816496 =
+  {
+    accessControlState : AccessControlState__201339279;
+    compositions : Map__230067015<Nat, Composition__412328051>;
+    nextId : {var value : Nat}
+  };
+type Node__204828119<K, V> =
+  {#internal : Internal__283199666<K, V>; #leaf : Leaf__598469445<K, V>};
+type OldActor__512397517 = {};
+type Timestamp__301639476 = Nat;
+type UserRole__91647283 = {#admin; #guest; #user};
+{
+  "00000000_000000" : OldActor__512397517 -> NewActor__769816496
+}
+actor  {
+  stable accessControlState :
+    {
+      var adminAssigned : Bool;
+      userRoles : Map__230067015<Principal, UserRole__91647283>
+    };
+  stable compositions :
+    {
+      var root : Node__204828119<Nat, Composition__164365185>;
+      var size : Nat__227979830
+    };
+  stable nextId : {var value : Nat}
+};
